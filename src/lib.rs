@@ -8,7 +8,7 @@ pub struct Kelvin(f64);
 
 impl fmt::Display for Kelvin {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}", self.0)
+        write!(f, "{}K", self.0)
     }
 }
 
@@ -68,7 +68,7 @@ pub struct Fahrenheit(Kelvin);
 
 impl fmt::Display for Fahrenheit {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}°", self.0)
+        write!(f, "{}°F", self.0.to_string().replace("K",""))
     }
 }
 
@@ -121,7 +121,7 @@ pub struct Celcius(Kelvin);
 
 impl fmt::Display for Celcius {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}°", self.0)
+        write!(f, "{}°C", self.0.to_string().replace("K",""))
     }
 }
 
